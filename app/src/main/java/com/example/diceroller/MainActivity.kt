@@ -1,17 +1,16 @@
 package com.example.diceroller
 
 /*
-    Dice Roller
+    Exercise 01: Your First Interactive UI
     by Culaway, Rene Jotham C.
+
+    This mobile app is a "dice roller" that can also count up.
  */
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
-import java.lang.Integer.parseInt
-import java.text.NumberFormat
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,9 +26,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun rollDice() {
-        //Toast.makeText(this, "button clicked",
-        //   Toast.LENGTH_SHORT).show()
+        // Randomize a number
         val randomInt = (1..6).random()
+        // Assign that number
         val resultText: TextView = findViewById(R.id.result_text)
         resultText.text = randomInt.toString()
     }
@@ -37,8 +36,10 @@ class MainActivity : AppCompatActivity() {
     private fun countUp() {
         val resultText: TextView = findViewById(R.id.result_text)
         val txt = resultText.text.toString()
+
+        // Try and increment the number on the dice.
         try {
-            var num = parseInt(txt) + 1
+            var num = txt.toInt() + 1
             if (num < 7) {
                 resultText.text = num.toString()
             }
